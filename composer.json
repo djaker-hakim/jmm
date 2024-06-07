@@ -1,0 +1,20 @@
+{
+    "name": "djaker-hakim/jmm",
+    "description": "jmm json mini model this is a nosql file database",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hakim",
+            "email": "hakiltheknight@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+
+    "autoload": {
+        "psr-4": {
+            "stm\\jmm\\": "src/"
+        }
+    },
+    "require": {}
+}
