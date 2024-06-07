@@ -2,6 +2,8 @@
 
 namespace stm\jmm;
 
+use Exception;
+
 class Record  {
     
     protected $record;
@@ -75,7 +77,6 @@ class Record  {
      */
     public function push(array $array) : static
     {
-        // TODO VALIDATE THE ARRAY TO BE ASSOC
         $this->record = array_merge($this->record,$array);
         return $this;
     }
@@ -95,9 +96,8 @@ class Record  {
      * @param array $array
      * @return static
      */
-    public function unshift($array)
+    public function unshift(array $array) : static
     {
-        // TODO VALIDATE THE ARRAY TO BE ASSOC
         $this->record = array_merge($array, $this->record);
         return $this;
     }

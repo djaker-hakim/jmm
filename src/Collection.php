@@ -293,7 +293,9 @@ class Collection {
                   });
                   return $this;
             case 'like':
-                // TODO adding the like query
+                $this->filter(function($record) use($key, $value){
+                    if($this->isRecord($record)) return !(strpos($record->$key, $value) === false);
+                });
                 return $this;
             default :
                 return $this;

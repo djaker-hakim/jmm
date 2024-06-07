@@ -14,7 +14,7 @@ class Database extends Collection {
     /**
      * database name
      */
-    protected $name;
+    protected $db;
 
     /**
      * the current table 
@@ -36,9 +36,9 @@ class Database extends Collection {
     public array $columns = []; 
 
     
-    public function __construct()
+    public function __construct(string $path)
     {
-        
+        $this->path = $path;
     }
 
     /**
@@ -46,7 +46,7 @@ class Database extends Collection {
      */
     protected function fullPath()
     {
-        return $this->path.DIRECTORY_SEPARATOR.$this->name.DIRECTORY_SEPARATOR.$this->table.'.json';
+        return $this->path.DIRECTORY_SEPARATOR.$this->db.DIRECTORY_SEPARATOR.$this->table.'.json';
     }
 
     /**
@@ -56,7 +56,7 @@ class Database extends Collection {
      */
     public function db(string $name) : static
     {
-        $this->name = $name;
+        $this->db = $name;
         return $this;
     }
 
