@@ -49,10 +49,9 @@ class Schema {
     protected function nameValidation(string $name) : void
     {
         $forbidden = "/*.,:;!%'{([|`)]} ";
-        $chars = explode('', $name);
-        foreach($chars as $char)
+        for($i=0; $i < strlen($forbidden); $i++)
         {
-            if(!strpos($forbidden, $char)) throw new Exception("The character '$char' is not permitted.");
+            if(!(strpos($name, $forbidden[$i]) === false)) throw new Exception("The character '$forbidden[$i]' is not permitted.");
         }
     }
 
